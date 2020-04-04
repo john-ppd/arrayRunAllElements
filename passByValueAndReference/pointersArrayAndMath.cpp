@@ -18,7 +18,7 @@ int main()
 
 	//if you use math with memory addresses it only changes the element it points too, not the value example:
 	cout << arrayAddress1 + 1 << endl; // this will move the pointer to the next int memory location (i.e 4 bytes up from arrayAddress1) memory location. Can be used to go through an array.
-	
+
 	//incrementing a pointer is supposed to increment sequential ones I believe, I have only the one increment and attempt to store on the same memory address as the next one tho, look into it.
 	arrayAddress1++;
 	cout << "Memory location for arrayAddress1 is : " << arrayAddress1 << endl;
