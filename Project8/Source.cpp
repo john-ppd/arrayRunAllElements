@@ -21,7 +21,7 @@ int main() {
         sum = sum + (1.0 / (i * i));
         cout <<"i :" << i << " "<< sum <<endl;
     }
-    cout << sum;
+    cout << sum << endl;
 
     return 0;
 }
