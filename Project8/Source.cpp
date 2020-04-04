@@ -19,7 +19,7 @@ int main() {
     for (int i = 1; i <= 50; i++)
     {
         sum = sum + (1.0 / (i * i));
-        cout <<"i :" << i << " "<< sum <<endl;
+        cout <<"i :" << i << " "<< sum << endl;
     }
     cout << sum << endl;
 
