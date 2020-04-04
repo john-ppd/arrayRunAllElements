@@ -1,55 +1,35 @@
-
-
-
 #include <iostream>
+
 using namespace std;
+
+/*
+Pass by Value, passing a copy of a value of a variable to a function, it takes the given variable but not the variable itself.
+
+Pass by reference, passes the variables address, therefore the function can actually change the variables value using the memory address //uses less cpu because it doesnt have to make constant copies of the variable.
+
+
+*/
+
+void passByValue(int x)
+{
+    x = 99; //only changes the value within this function
+}
+
+void passByReference(int *x)
+{
+    *x = 50; // will change the value of x itself to 50 even outside of this function
+    //pretty much direct link to variable itself
+}
 int main() {
-    /*Pointers
 
-    1) WHen initializing use * after type
-    int* p;
-    int *p; //no difference in placement for compiler for *p or int*
-    string* q;
-    double* q;
+    int first = 13;
+    int second = 20;
 
-    after you define a pointer using *someVariable, to call the pointer only use someVariable
-    2)
-    & - is the address opperator, retrieves the address of the variable.
+    passByValue(first);
+    cout << first << endl; // first was changed in function only, still is original value after
 
-
-    */
-
-    int x = 25;
-    int* p = &x; // &x will get the address assosiated with x, *p will point to and hold that address.
-
-    //print address
-    cout << p << endl;
-    cout << &x << endl; //same result;
-
-    //print value stored in that address, x = 25 in this example.
-    cout << *p << endl;
-    cout << x << endl; // same result;
-
-    //below are same results as *p stores the value of x currently
-    x = x + 5;
-    x = *p + 5;
-    *p = x + 5;
-    *p = *p + 5;
-
-    //using &*p
-    cout << &*p << endl; //*& pairing cancels out, leaving just p. This will get the address of *p which is the same as &x
-
-    //summary, pointers point to address. &x gets address, *p gets value off memory. 
-
-    //One more example
-    int fish = 5;
-    cout << &fish << endl;//will print out the memory address of fish variable;
-
-    int* fishPointer;// creates a pointer called fishPointer and now we do not use * again on the variable, it has been defined as a pointer type;
-    fishPointer = &fish; // point to the address of fish, will get the memory address of fish
-    cout << fishPointer << endl; // will print the address of fish variable;
-
-    //USING * again will get the variable  value from that address
-    cout << *fishPointer << endl; // will print 5 because thats what's stored in the memory address
+    passByReference(&second); // we need to include & before the varialbe because we want to pass the address since we're using pointers, therefore use &second
+    cout << second << endl;//seconds actual value changed to 50, started at 20, changed within the function itself.
+    
     return 0;
 }
