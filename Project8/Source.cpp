@@ -15,6 +15,8 @@ int main() {
 
     for (double t : time)//displays them all!
         cout << t << endl;
+
+
     return 0;
 }
 
