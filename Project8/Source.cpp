@@ -1,43 +1,30 @@
 
 
 #include <iostream>
+
 using namespace std;
 int main() {
-/*Pointers 
 
-1) WHen initializing use * after type
-int* p;
-int *p; //no difference in placement for compiler for *p or int*
-string* q;
-double* q;
+    /*
+    When working with 2d arrays, its an array within an array, first box is row, second is column,
+    int ar[2][3]={{1,2,3},{4,5,6}};
+    2 rows 3 colums
+    also can be looked at as 2 arrays each a row within another array.
+    */
 
-2)
-& - is the address opperator, retrieves the address of the variable.
+    int ar[2][3] = { {1,2,3},{4,5,6} };
 
-
-*/
- 
-    int x = 25;
-    int* p = &x; // &x will get the address assosiated with x, *p will point to and hold that address.
-
-    //print address
-    cout << p << endl;
-    cout << &x << endl; //same result;
-
-    //print value stored in that address, x = 25 in this example.
-    cout << *p << endl;
-    cout << x << endl; // same result;
-
-    //below are same results as *p stores the value of x currently
-    x = x + 5;
-    x = *p + 5;
-    *p = x + 5;
-    *p = *p + 5;
-
-    //using &*p
-    cout << &*p << endl; //*& pairing cancels out, leaving just p. This will get the address of *p which is the same as &x
+    for (int row = 0; row < 2; row++)
+    {
+        for (int col = 0; col < 3; col++)
+        {
+            cout << ar[row][col] << " ";//this will loop all the columns in that row with a space between them.
+        }
+        cout << endl;//this creates a endl between rows.
+    }
     
-    //summary, pointers point to address. &x gets address, *p gets value off memory. 
+
+
     return 0;
 }
 
