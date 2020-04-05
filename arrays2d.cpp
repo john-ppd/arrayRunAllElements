@@ -11,7 +11,7 @@ int main() {
     also can be looked at as 2 arrays each a row within another array.
     */
 
-    int ar[2][3] = { {1,2,3},{4,5,6} };
+    int ar[2][3] = { {1,2,3},{4,5,6} }; // the row initialization can be empty only, i.e ar[][3]; is accepted
 
     for (int row = 0; row < 2; row++)
     {
