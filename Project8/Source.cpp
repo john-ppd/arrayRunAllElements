@@ -1,29 +1,62 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
+/*
+1) need to use #include<vector>
+2)use format of vector<DataType> nameOfVector
+remember that when you define a data type to the vector it ONLY works with that data type.
 
+
+Vectors resize automatically when you add or remove things from them, can be better for lists than arrays when you dont have predefined memory.
+
+Useful commands
+***************
+myVector.push_back(value); adds an element to the END of the vector (also resizes it).
+myVector.at(index) or myVector[index] returns value stored at that memory location
+myVetor.size(); RETURNS UNSIGNED INT, important to declare other ints as unsigned if you're using together like in the for loop.
+myVecor.begin(); reads vetor at first element(index) at first location or at [0]
+myVector.insert(myVector.begin() + integer, newValue); must include .begin inside the insert. ADDS elements at specified index number shift rest right
+-for the insert command the + integer is at what memory location you want to insert at +5 and itd insert at [5]
+myVector.erase(myVecctor.begin() + integer); erases AT specified index(element).
+myVector.empty(); is a boolean, true if the vector has no elements, false otherwise
+myVector.clear(); clears all memory locations of the vector.
+*/
 int main()
 {
-	int arrayInt[3];
-	int* arrayAddress1 = &arrayInt[0];
-	int* arrayAddress2 = &arrayInt[1];
-	int* arrayAddress3 = &arrayInt[2];
+	//2
+	vector<int> anIntVector;
 
-	cout << "Taking sizeof(arrayInt[0]) we can see how many bytes of storage each array location takes and also how much memory we need to increment if going to the"
-		<< " next value (changes due to machine age sometimes) an int is bytes = " << sizeof(arrayInt[0]) << endl;
+	anIntVector.push_back(3);
+	anIntVector.push_back(2);//adds the value '2' to the end of the vector, as the last location on the vector
+	anIntVector.push_back(1);
 
-	cout << "Memory location for arrayAddress1 is : " << arrayAddress1 << endl;
-	cout << "Memory location for arrayAddress2 is : " << arrayAddress2 << endl;//memory increments by 4 bytes because int = 4 bytes
-	cout << "Memory location for arrayAddress3 is : " << arrayAddress3 << endl;
+	for (unsigned int i = 0; i < anIntVector.size(); i++)
+	{
+		//This will print entire vector becaus you used .size();
+		//make sure to use unsigned, error otherwise because its possible to return (-) values and the size of a vector is 0+ never (-).
+		//keep in mind usigned int and int are different variables, like comparing double to int
+		//cout << anIntVector.at(0) << endl;
+		cout << anIntVector[i] << endl;//this and .at() are the same, upto preference
 
-	//if you use math with memory addresses it only changes the element it points too, not the value example:
-	cout << arrayAddress1 + 1 << endl; // this will move the pointer to the next int memory location (i.e 4 bytes up from arrayAddress1) memory location. Can be used to go through an array.
-	
-	//incrementing a pointer is supposed to increment sequential ones I believe, I have only the one increment and attempt to store on the same memory address as the next one tho, look into it.
-	arrayAddress1++;
-	cout << "Memory location for arrayAddress1 is : " << arrayAddress1 << endl;
-	cout << "Memory location for arrayAddress2 is : " << arrayAddress2 << endl;//memory increments by 4 bytes because int = 4 bytes
-	cout << "Memory location for arrayAddress3 is : " << arrayAddress3 << endl;
+	}
+
+	anIntVector.insert(anIntVector.begin() + 1, 10);
+	for (unsigned int i = 0; i < anIntVector.size(); i++)
+		cout << anIntVector[i] << endl;
+
+	anIntVector.erase(anIntVector.begin() + 1);//will remove whats stored in [1]
+
+	for (unsigned int i = 0; i < anIntVector.size(); i++)
+		cout << anIntVector[i] << endl;
+
+	cout << anIntVector.empty() << endl; // 0 for false, 1 for true
+
+	anIntVector.clear();
+
+	cout << anIntVector.empty() << endl; // 0 for false, 1 for true
+
+	for (unsigned int i = 0; i < anIntVector.size(); i++)
+		cout << anIntVector[i] << endl;
 
 	return 0;
 }
